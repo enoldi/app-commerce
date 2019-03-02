@@ -1,0 +1,35 @@
+{
+    "generator-jhipster": {
+        "promptValues": {
+            "packageName": "com.arsene"
+        },
+        "jhipsterVersion": "5.8.2",
+        "applicationType": "monolith",
+        "baseName": "appcommerce",
+        "packageName": "com.arsene",
+        "packageFolder": "com/arsene",
+        "serverPort": "8080",
+        "authenticationType": "jwt",
+        "cacheProvider": "ehcache",
+        "enableHibernateCache": true,
+        "websocket": false,
+        "databaseType": "sql",
+        "devDatabaseType": "mysql",
+        "prodDatabaseType": "mysql",
+        "searchEngine": false,
+        "messageBroker": false,
+        "serviceDiscoveryType": "eureka",
+        "buildTool": "maven",
+        "enableSwaggerCodegen": false,
+        "jwtSecretKey": "ZGU1MTU5ZWQ5NGJlNzBkZDQzZGFlNDE5MWJiMWJkMDlhY2YxOWM3NDA3M2Y1YjU2NzcwMGU1MmMxYWRkMzViYTMxODQ2NDdhY2VjN2U0MGUxZDQ3YjFhMDMzNTU0YWQ0MmNhOTE0YmMxYWE0NzBiZjNmZGMzMjI4MWI4Mjc5MTI=",
+        "clientFramework": "angularX",
+        "useSass": true,
+        "clientPackageManager": "npm",
+        "testFrameworks": [],
+        "jhiPrefix": "jhi",
+        "entitySuffix": "",
+        "dtoSuffix": "DTO",
+        "otherModules": [],
+        "enableTranslation": false
+    }
+}
