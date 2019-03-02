@@ -1,0 +1,65 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orders">
+            <h2><span>Orders</span> {{orders.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Created On</span></dt>
+                <dd>
+                    <span>{{orders.createdOn}}</span>
+                </dd>
+                <dt><span>Shipped On</span></dt>
+                <dd>
+                    <span>{{orders.shippedOn}}</span>
+                </dd>
+                <dt><span>Status</span></dt>
+                <dd>
+                    <span>{{orders.status}}</span>
+                </dd>
+                <dt><span>Comments</span></dt>
+                <dd>
+                    <span>{{orders.comments}}</span>
+                </dd>
+                <dt><span>Auth Code</span></dt>
+                <dd>
+                    <span>{{orders.authCode}}</span>
+                </dd>
+                <dt><span>Reference</span></dt>
+                <dd>
+                    <span>{{orders.reference}}</span>
+                </dd>
+                <dt><span>Customer</span></dt>
+                <dd>
+                    <div *ngIf="orders.customer">
+                        <a [routerLink]="['/customer', orders.customer?.id, 'view']">{{orders.customer?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Shipping</span></dt>
+                <dd>
+                    <div *ngIf="orders.shipping">
+                        <a [routerLink]="['/shipping', orders.shipping?.id, 'view']">{{orders.shipping?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Tax</span></dt>
+                <dd>
+                    <div *ngIf="orders.tax">
+                        <a [routerLink]="['/tax', orders.tax?.id, 'view']">{{orders.tax?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/orders', orders.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

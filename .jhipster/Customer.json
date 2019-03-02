@@ -1,0 +1,62 @@
+{
+    "name": "Customer",
+    "fields": [
+        {
+            "fieldName": "creditCard",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address1",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "address2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "city",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "region",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "postalCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "country",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dayPhone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "evePhone",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "mobPhone",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "shippingRegion",
+            "otherEntityRelationshipName": "customer",
+            "relationshipName": "shippingRegions"
+        }
+    ],
+    "changelogDate": "20190302225721",
+    "entityTableName": "customer",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

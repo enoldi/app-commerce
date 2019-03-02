@@ -1,0 +1,47 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="review">
+            <h2><span>Review</span> {{review.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Created On</span></dt>
+                <dd>
+                    <span>{{review.createdOn}}</span>
+                </dd>
+                <dt><span>Message</span></dt>
+                <dd>
+                    <span>{{review.message}}</span>
+                </dd>
+                <dt><span>Rating</span></dt>
+                <dd>
+                    <span>{{review.rating}}</span>
+                </dd>
+                <dt><span>Customer</span></dt>
+                <dd>
+                    <div *ngIf="review.customer">
+                        <a [routerLink]="['/customer', review.customer?.id, 'view']">{{review.customer?.id}}</a>
+                    </div>
+                </dd>
+                <dt><span>Product</span></dt>
+                <dd>
+                    <div *ngIf="review.product">
+                        <a [routerLink]="['/product', review.product?.id, 'view']">{{review.product?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/review', review.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

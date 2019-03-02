@@ -1,0 +1,27 @@
+{
+    "name": "Tax",
+    "fields": [
+        {
+            "fieldName": "taxType",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "taxPercentage",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20190302225723",
+    "entityTableName": "tax",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,64 @@
+{
+    "name": "Orders",
+    "fields": [
+        {
+            "fieldName": "createdOn",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "shippedOn",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "comments",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "authCode",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "reference",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "orders",
+            "relationshipName": "customer",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "shipping",
+            "otherEntityRelationshipName": "orders",
+            "relationshipName": "shipping",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tax",
+            "otherEntityRelationshipName": "orders",
+            "relationshipName": "tax",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190302225718",
+    "entityTableName": "orders",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

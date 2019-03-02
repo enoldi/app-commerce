@@ -1,0 +1,34 @@
+{
+    "name": "Shipping",
+    "fields": [
+        {
+            "fieldName": "shippingType",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": 1000
+        },
+        {
+            "fieldName": "shippingCost",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "shippingRegion",
+            "otherEntityRelationshipName": "shipping",
+            "relationshipName": "shippingRegions"
+        }
+    ],
+    "changelogDate": "20190302225722",
+    "entityTableName": "shipping",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

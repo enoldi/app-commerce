@@ -1,0 +1,140 @@
+entity Department {
+	name String required,
+    description String
+}
+
+entity Category {
+	name String required,
+    description String
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Product {
+	name String required,
+	description String required,
+	price Double required,
+	discountedPrice String required,
+    image String,
+    image2 String,
+    thumbnail String,
+    display Integer required
+}
+
+entity Attribute {
+	name String required
+}
+
+/**
+ * AttributeValue entity.
+ * @author The Arsene team.
+ */
+entity AttributeValue {
+	name String required,
+}
+
+/**
+ * The ShoppingCard entity.
+ */
+entity ShoppingCard {
+	itemId Integer,
+	attributes String,
+	quantity Integer,
+	buyNow Boolean,
+	addedOn LocalDate,
+	salary Long,
+}
+
+entity Orders {
+	createdOn LocalDate required,
+	shippedOn LocalDate,
+	status Integer,
+    comments String,
+    authCode String,
+    reference String
+}
+
+entity OrderItems {
+	attributes String,
+	productName String,
+	quantity Integer,
+    unityCost Double
+}
+
+entity ShippingRegion {
+	name String
+}
+
+entity Customer {
+	creditCard String,
+	address1 String,
+    address2 String,
+    city String,
+    region String,
+    postalCode String,
+    country String,
+    dayPhone String,
+    evePhone String,
+    mobPhone String
+}
+
+entity Shipping {
+	shippingType String maxlength(1000),
+	shippingCost Double
+}
+
+entity Tax {
+	taxType String maxlength(1000),
+	taxPercentage Double
+}
+
+entity Review {
+	createdOn LocalDate,
+	message TextBlob,
+    rating Integer
+}
+
+entity Audit {
+	createdOn LocalDate,
+	message TextBlob,
+    code Integer
+}
+
+relationship ManyToMany {
+	Product{category} to Category{product},
+    Product{attribute} to Attribute{product}
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	ShoppingCard{products} to Product,
+    OrderItems{products} to Product,
+    Customer{shippingRegions} to ShippingRegion,
+    Shipping{shippingRegions} to ShippingRegion
+}
+
+relationship ManyToOne {
+	Category{department} to Department,
+    AttributeValue{attribute} to Attribute,
+    Orders{customer} to Customer,
+    Orders{shipping} to Shipping,
+    Orders{tax} to Tax,
+    OrderItems{order} to Orders,
+    Audit{order} to Orders,
+    Review{customer} to Customer,
+    Review{product} to Product
+}
+
+
+
+// Set pagination options
+paginate Product, Customer with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl 
+
+// Set an angular suffix
+// angularSuffix * with mySuffix

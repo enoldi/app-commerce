@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-orders-heading">Create or edit a Orders</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!orders.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="orders.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_createdOn">Created On</label>
+                    <div class="input-group">
+                        <input id="field_createdOn" type="text" class="form-control" name="createdOn" ngbDatepicker  #createdOnDp="ngbDatepicker" [(ngModel)]="orders.createdOn"
+                        required/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="createdOnDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div [hidden]="!(editForm.controls.createdOn?.dirty && editForm.controls.createdOn?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.createdOn?.errors?.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_shippedOn">Shipped On</label>
+                    <div class="input-group">
+                        <input id="field_shippedOn" type="text" class="form-control" name="shippedOn" ngbDatepicker  #shippedOnDp="ngbDatepicker" [(ngModel)]="orders.shippedOn"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="shippedOnDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_status">Status</label>
+                    <input type="number" class="form-control" name="status" id="field_status"
+                        [(ngModel)]="orders.status" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_comments">Comments</label>
+                    <input type="text" class="form-control" name="comments" id="field_comments"
+                        [(ngModel)]="orders.comments" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_authCode">Auth Code</label>
+                    <input type="text" class="form-control" name="authCode" id="field_authCode"
+                        [(ngModel)]="orders.authCode" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_reference">Reference</label>
+                    <input type="text" class="form-control" name="reference" id="field_reference"
+                        [(ngModel)]="orders.reference" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" [(ngModel)]="orders.customer" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === orders.customer?.id ? orders.customer : customerOption" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_shipping">Shipping</label>
+                    <select class="form-control" id="field_shipping" name="shipping" [(ngModel)]="orders.shipping" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="shippingOption.id === orders.shipping?.id ? orders.shipping : shippingOption" *ngFor="let shippingOption of shippings; trackBy: trackShippingById">{{shippingOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_tax">Tax</label>
+                    <select class="form-control" id="field_tax" name="tax" [(ngModel)]="orders.tax" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="taxOption.id === orders.tax?.id ? orders.tax : taxOption" *ngFor="let taxOption of taxes; trackBy: trackTaxById">{{taxOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

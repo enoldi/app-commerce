@@ -1,0 +1,82 @@
+<div>
+    <h2 id="page-heading">
+        <span>Orders</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-orders" [routerLink]="['/orders/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Orders
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="orders">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Created On</span></th>
+            <th><span>Shipped On</span></th>
+            <th><span>Status</span></th>
+            <th><span>Comments</span></th>
+            <th><span>Auth Code</span></th>
+            <th><span>Reference</span></th>
+            <th><span>Customer</span></th>
+            <th><span>Shipping</span></th>
+            <th><span>Tax</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let orders of orders ;trackBy: trackId">
+                <td><a [routerLink]="['/orders', orders.id, 'view' ]">{{orders.id}}</a></td>
+                <td>{{orders.createdOn | date:'mediumDate'}}</td>
+                <td>{{orders.shippedOn | date:'mediumDate'}}</td>
+                <td>{{orders.status}}</td>
+                <td>{{orders.comments}}</td>
+                <td>{{orders.authCode}}</td>
+                <td>{{orders.reference}}</td>
+                <td>
+                    <div *ngIf="orders.customer">
+                        <a [routerLink]="['../customer', orders.customer?.id, 'view' ]" >{{orders.customer?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="orders.shipping">
+                        <a [routerLink]="['../shipping', orders.shipping?.id, 'view' ]" >{{orders.shipping?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="orders.tax">
+                        <a [routerLink]="['../tax', orders.tax?.id, 'view' ]" >{{orders.tax?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/orders', orders.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/orders', orders.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'orders', { outlets: { popup: orders.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

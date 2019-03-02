@@ -1,0 +1,45 @@
+{
+    "name": "OrderDetail",
+    "fields": [
+        {
+            "fieldName": "attributes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "productName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "unityCost",
+            "fieldType": "Double"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "orderDetail",
+            "relationshipName": "products"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "orders",
+            "otherEntityRelationshipName": "orderDetail",
+            "relationshipName": "order",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190302225719",
+    "entityTableName": "order_detail",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

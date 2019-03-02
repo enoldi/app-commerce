@@ -1,0 +1,43 @@
+{
+    "name": "Review",
+    "fields": [
+        {
+            "fieldName": "createdOn",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "rating",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "customer",
+            "otherEntityRelationshipName": "review",
+            "relationshipName": "customer",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "review",
+            "relationshipName": "product",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190302225724",
+    "entityTableName": "review",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

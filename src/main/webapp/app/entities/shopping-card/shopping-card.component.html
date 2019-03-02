@@ -1,0 +1,64 @@
+<div>
+    <h2 id="page-heading">
+        <span>Shopping Cards</span>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-shopping-card" [routerLink]="['/shopping-card/new']">
+            <fa-icon [icon]="'plus'"></fa-icon>
+            <span >
+            Create new Shopping Card
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <br/>
+    <div class="table-responsive" *ngIf="shoppingCards">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span>ID</span></th>
+            <th><span>Item Id</span></th>
+            <th><span>Attributes</span></th>
+            <th><span>Quantity</span></th>
+            <th><span>Buy Now</span></th>
+            <th><span>Added On</span></th>
+            <th><span>Salary</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let shoppingCard of shoppingCards ;trackBy: trackId">
+                <td><a [routerLink]="['/shopping-card', shoppingCard.id, 'view' ]">{{shoppingCard.id}}</a></td>
+                <td>{{shoppingCard.itemId}}</td>
+                <td>{{shoppingCard.attributes}}</td>
+                <td>{{shoppingCard.quantity}}</td>
+                <td>{{shoppingCard.buyNow}}</td>
+                <td>{{shoppingCard.addedOn | date:'mediumDate'}}</td>
+                <td>{{shoppingCard.salary}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['/shopping-card', shoppingCard.id, 'view' ]"
+                                class="btn btn-info btn-sm">
+                            <fa-icon [icon]="'eye'"></fa-icon>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/shopping-card', shoppingCard.id, 'edit']"
+                                class="btn btn-primary btn-sm">
+                            <fa-icon [icon]="'pencil-alt'"></fa-icon>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', 'shopping-card', { outlets: { popup: shoppingCard.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <fa-icon [icon]="'times'"></fa-icon>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

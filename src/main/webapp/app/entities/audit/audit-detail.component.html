@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="audit">
+            <h2><span>Audit</span> {{audit.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Created On</span></dt>
+                <dd>
+                    <span>{{audit.createdOn}}</span>
+                </dd>
+                <dt><span>Message</span></dt>
+                <dd>
+                    <span>{{audit.message}}</span>
+                </dd>
+                <dt><span>Code</span></dt>
+                <dd>
+                    <span>{{audit.code}}</span>
+                </dd>
+                <dt><span>Order</span></dt>
+                <dd>
+                    <div *ngIf="audit.order">
+                        <a [routerLink]="['/orders', audit.order?.id, 'view']">{{audit.order?.id}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/audit', audit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

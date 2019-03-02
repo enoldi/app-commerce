@@ -5,6 +5,28 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225714_added_entity_Product.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225948_added_entity_OrderItems.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225712_added_entity_Department.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225713_added_entity_Category.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225715_added_entity_Attribute.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225716_added_entity_AttributeValue.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225717_added_entity_ShoppingCard.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225718_added_entity_Orders.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225720_added_entity_ShippingRegion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225721_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225722_added_entity_Shipping.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225723_added_entity_Tax.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225724_added_entity_Review.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225725_added_entity_Audit.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20190302225714_added_entity_constraints_Product.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225948_added_entity_constraints_OrderItems.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225713_added_entity_constraints_Category.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225716_added_entity_constraints_AttributeValue.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225718_added_entity_constraints_Orders.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225720_added_entity_constraints_ShippingRegion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225724_added_entity_constraints_Review.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20190302225725_added_entity_constraints_Audit.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

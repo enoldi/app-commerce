@@ -1,0 +1,36 @@
+{
+    "name": "Audit",
+    "fields": [
+        {
+            "fieldName": "createdOn",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "message",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "code",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "orders",
+            "otherEntityRelationshipName": "audit",
+            "relationshipName": "order",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190302225725",
+    "entityTableName": "audit",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

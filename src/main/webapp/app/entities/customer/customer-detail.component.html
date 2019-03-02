@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customer">
+            <h2><span>Customer</span> {{customer.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Credit Card</span></dt>
+                <dd>
+                    <span>{{customer.creditCard}}</span>
+                </dd>
+                <dt><span>Address 1</span></dt>
+                <dd>
+                    <span>{{customer.address1}}</span>
+                </dd>
+                <dt><span>Address 2</span></dt>
+                <dd>
+                    <span>{{customer.address2}}</span>
+                </dd>
+                <dt><span>City</span></dt>
+                <dd>
+                    <span>{{customer.city}}</span>
+                </dd>
+                <dt><span>Region</span></dt>
+                <dd>
+                    <span>{{customer.region}}</span>
+                </dd>
+                <dt><span>Postal Code</span></dt>
+                <dd>
+                    <span>{{customer.postalCode}}</span>
+                </dd>
+                <dt><span>Country</span></dt>
+                <dd>
+                    <span>{{customer.country}}</span>
+                </dd>
+                <dt><span>Day Phone</span></dt>
+                <dd>
+                    <span>{{customer.dayPhone}}</span>
+                </dd>
+                <dt><span>Eve Phone</span></dt>
+                <dd>
+                    <span>{{customer.evePhone}}</span>
+                </dd>
+                <dt><span>Mob Phone</span></dt>
+                <dd>
+                    <span>{{customer.mobPhone}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer', customer.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

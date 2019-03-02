@@ -1,0 +1,92 @@
+{
+    "name": "Product",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "price",
+            "fieldType": "Double",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "discountedPrice",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "image",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "image2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "thumbnail",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "display",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "category",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "category",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "attribute",
+            "otherEntityRelationshipName": "product",
+            "relationshipName": "attribute",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipName": "shoppingCard",
+            "otherEntityName": "shoppingCard",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipName": "orderItems",
+            "otherEntityName": "orderItems",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20190302225714",
+    "javadoc": "not an ignored comment",
+    "entityTableName": "product",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,59 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-shopping-card-heading">Create or edit a Shopping Card</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!shoppingCard.id">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="shoppingCard.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_itemId">Item Id</label>
+                    <input type="number" class="form-control" name="itemId" id="field_itemId"
+                        [(ngModel)]="shoppingCard.itemId" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_attributes">Attributes</label>
+                    <input type="text" class="form-control" name="attributes" id="field_attributes"
+                        [(ngModel)]="shoppingCard.attributes" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_quantity">Quantity</label>
+                    <input type="number" class="form-control" name="quantity" id="field_quantity"
+                        [(ngModel)]="shoppingCard.quantity" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_buyNow">Buy Now</label>
+                    <input type="checkbox" class="form-control" name="buyNow" id="field_buyNow"
+                        [(ngModel)]="shoppingCard.buyNow" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_addedOn">Added On</label>
+                    <div class="input-group">
+                        <input id="field_addedOn" type="text" class="form-control" name="addedOn" ngbDatepicker  #addedOnDp="ngbDatepicker" [(ngModel)]="shoppingCard.addedOn"
+                        />
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="addedOnDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" for="field_salary">Salary</label>
+                    <input type="number" class="form-control" name="salary" id="field_salary"
+                        [(ngModel)]="shoppingCard.salary" />
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+{
+    "name": "ShoppingCard",
+    "fields": [
+        {
+            "fieldName": "itemId",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "attributes",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "quantity",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "buyNow",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "addedOn",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "salary",
+            "fieldType": "Long"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "product",
+            "otherEntityRelationshipName": "shoppingCard",
+            "relationshipName": "products"
+        }
+    ],
+    "changelogDate": "20190302225717",
+    "javadoc": "The ShoppingCard entity.",
+    "entityTableName": "shopping_card",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

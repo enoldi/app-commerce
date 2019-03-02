@@ -41,6 +41,28 @@ public class CacheConfiguration {
             cm.createCache(com.arsene.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(com.arsene.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(com.arsene.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Product.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Product.class.getName() + ".categories", jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Product.class.getName() + ".attributes", jcacheConfiguration);
+            cm.createCache(com.arsene.domain.OrderItems.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.OrderItems.class.getName() + ".products", jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Department.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Category.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Category.class.getName() + ".products", jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Attribute.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Attribute.class.getName() + ".products", jcacheConfiguration);
+            cm.createCache(com.arsene.domain.AttributeValue.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.ShoppingCard.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.ShoppingCard.class.getName() + ".products", jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Orders.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.ShippingRegion.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Customer.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Customer.class.getName() + ".shippingRegions", jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Shipping.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Shipping.class.getName() + ".shippingRegions", jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Tax.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Review.class.getName(), jcacheConfiguration);
+            cm.createCache(com.arsene.domain.Audit.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }
